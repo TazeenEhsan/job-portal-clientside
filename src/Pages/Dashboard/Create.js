@@ -16,7 +16,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@mui/material/Typography';
 import { Container, Grid, InputLabel, MenuItem, Select, TextareaAutosize, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-
+import { Navigate, useNavigate } from 'react-router-dom';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -65,6 +66,8 @@ const Create = () => {
     //==============================
     const [newJobData, setnewJobData] = useState({});
 
+    const navigate = useNavigate();
+
 
 
 
@@ -100,9 +103,17 @@ const Create = () => {
         const salary = newJobData.salary
         const question = newJobData.question
         const description = newJobData.description
+        const status = 'Active'
+
+        const postDate = new Date().toLocaleString();
+
+        var someDate = new Date();
+        var numberOfDaysToAdd = 10;
+        var result = someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+        var expireDate = new Date(result).toLocaleString()
 
 
-        const newJob = { jobTitle, shift, department, level, vacancy, salary, question, description };
+        const newJob = { jobTitle, shift, department, level, vacancy, salary, status, postDate, expireDate, question, description };
 
         console.log('user is', newJob);
         console.log('token is', token);
@@ -121,6 +132,8 @@ const Create = () => {
             .then();
 
         e.preventDefault();
+        navigate('/dashboard')
+        setOpen(false);
     }
     ///=========================================
 
@@ -132,15 +145,15 @@ const Create = () => {
     const handleClickOpen = () => {
         setOpen(true);
     };
-    const handleClose = () => {
-        handleLoginSubmit();
+    const handleClose = (e) => {
+        handleLoginSubmit(e);
         setOpen(false);
     };
 
     return (
         <div>
             <Button variant="outlined" sx={{ backgroundColor: 'green', color: 'white' }} onClick={handleClickOpen}>
-                Create
+                <AddCircleOutlineIcon></AddCircleOutlineIcon> Create
             </Button>
             <BootstrapDialog
                 onClose={handleClose}
@@ -254,29 +267,12 @@ const Create = () => {
                                     />
 
 
-                                    <TextField
-                                        sx={{ width: '75%', m: 1 }}
-                                        id="standard-basic"
-                                        label="Your Email"
-                                        name="email"
-                                        type="email"
-                                        onBlur={handleOnBlur}
-                                        variant="standard" />
+
+                                    <Button sx={{ width: '75%', m: 1, fontSize: '15px' }} type="submit" variant="contained">Save and add new</Button>
+                                    <Button sx={{ width: '75%', m: 1, fontSize: '15px' }} type="submit" variant="contained">Save and add new</Button>
+                                    {/* <Button sx={{ width: '40%', m: 1 }} type="submit" variant="contained">Save</Button> */}
 
 
-
-
-                                    {/* <Grid>
-                                        <DialogActions>
-
-                                            <Button sx={{ width: '50%', m: 1 }} variant="contained" autoFocus onClick={handleClose}>
-                                                Save
-                                            </Button>
-                                            <Button sx={{ width: '40%', m: 1 }} type="submit" variant="contained">Register</Button>
-                                        </DialogActions>
-
-
-                                    </Grid> */}
                                 </form>
 
 
@@ -290,7 +286,7 @@ const Create = () => {
 
                 </DialogContent>
 
-                <DialogActions>
+                {/* <DialogActions>
                     <Grid container justifyContent="flex-start">
                         <Button autoFocus type='submit' onClick={handleLoginSubmit}>
                             Save and add another
@@ -299,49 +295,10 @@ const Create = () => {
                     <Button autoFocus onClick={handleClose}>
                         Save
                     </Button>
-                </DialogActions>
+                </DialogActions> */}
             </BootstrapDialog>
         </div >
-        // return (
 
-        //     <div>
-
-        // </div>
-        // <Container>
-        //     <Grid container spacing={2}>
-        //         <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-        //             <Typography variant="body1" gutterBottom>Register</Typography>
-        //             <form onSubmit={handleLoginSubmit}>
-        //                 <TextField
-        //                     sx={{ width: '75%', m: 1 }}
-        //                     id="standard-basic"
-        //                     label="Your Name"
-        //                     name="name"
-
-        //                     onBlur={handleOnBlur}
-        //                     variant="standard" />
-        //                 <TextField
-        //                     sx={{ width: '75%', m: 1 }}
-        //                     id="standard-basic"
-        //                     label="Your Email"
-        //                     name="email"
-        //                     type="email"
-        //                     onBlur={handleOnBlur}
-        //                     variant="standard" />
-
-
-        //                 <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
-
-        //             </form>
-
-
-
-        //         </Grid>
-        //         <Grid item xs={12} md={6}>
-        //             <img style={{ width: '100%' }} src="" alt="" />
-        //         </Grid>
-        //     </Grid>
-        // </Container>
     );
 };
 

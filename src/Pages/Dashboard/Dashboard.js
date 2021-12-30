@@ -162,10 +162,9 @@ const Dashboard = () => {
                     <Grid item xs={12} md={4} lg={1} >
 
                         <Box sx={{ marginTop: 5 }}>
-                            <p>hi</p>
-                            <p>hi</p>
-                            <p>hi</p>
-                            <p>hi</p>
+                            <h5>Home</h5>
+                            <h5>Jobs</h5>
+
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={8} lg={10}>
@@ -287,8 +286,10 @@ const Dashboard = () => {
                                     >
 
 
-                                        <Typography>This is From Orders</Typography>
+                                        <Typography sx={{ backgroundColor: 'blue', color: 'white', padding: '13px' }}>Recent Jpb Post</Typography>
+
                                         <AllJobs></AllJobs>
+
                                     </Paper>
                                 </Grid>
                             </Container>
