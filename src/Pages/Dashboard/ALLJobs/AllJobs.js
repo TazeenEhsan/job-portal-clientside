@@ -33,7 +33,7 @@ const AllJobs = () => {
 
     }, [1]);
 
-    console.log(allJobs);
+
 
     const handleView = (id) => {
 

@@ -1,12 +1,15 @@
 import { Alert, Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 
 const SignUp = () => {
 
     const [registrationData, setRegistrationData] = useState({});
+
+    const navigate = useNavigate();
 
     const { user, isLoading, isLogin, token, registerUser } = useAuth();
 
@@ -27,7 +30,9 @@ const SignUp = () => {
 
         }
         registerUser(registrationData.email, registrationData.password, registrationData.name, registrationData.phone, registrationData.date, registrationData.gender);
+        alert('registered . now login')
         e.preventDefault();
+
 
     }
 

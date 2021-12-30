@@ -76,8 +76,8 @@ const Create = () => {
 
     const token = JSON.parse(localStorage.getItem('token'));
 
-    // console.log('islogin', isLogin);
-    console.log('token is', token);
+
+
 
 
 
@@ -91,7 +91,7 @@ const Create = () => {
 
         setnewJobData(newregistrationData);
     }
-    console.log(newJobData);
+
 
     const handleLoginSubmit = (e) => {
 
@@ -115,8 +115,7 @@ const Create = () => {
 
         const newJob = { jobTitle, shift, department, level, vacancy, salary, status, postDate, expireDate, question, description };
 
-        console.log('user is', newJob);
-        console.log('token is', token);
+
         localStorage.setItem('newJob', JSON.stringify(newJob))
 
 
