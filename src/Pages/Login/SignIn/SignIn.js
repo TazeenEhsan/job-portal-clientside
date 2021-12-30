@@ -6,9 +6,7 @@ import { TabContext, TabList, TabPanel } from '@material-ui/lab';
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import SignUp from '../SignUp/SignUp';
 import useAuth from '../../../hooks/useAuth';
-// import TabContext from '@mui/lab/TabContext';
-// import TabList from '@mui/lab/TabList';
-// import TabPanel from '@mui/lab/TabPanel';
+
 
 
 const SignIn = () => {
@@ -38,7 +36,7 @@ const SignIn = () => {
     }
     return (
         <Container maxWidth="sm">
-            {/* <Box sx={{ bgcolor: '#cfe8fc', height: '100vh' }} /> */}
+
             <Box sx={{ bgcolor: '#cfe8fc', width: '100%', typography: 'body1' }}>
                 <TabContext value={value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -74,15 +72,11 @@ const SignIn = () => {
                                         onBlur={handleOnBlur}
                                     />
 
-                                    <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
-                                    {/* <NavLink
-                                style={{ textDecoration: 'none' }}
-                                to="/login">
-                                <Button variant="text">Already Registered? Please Login</Button>
-                            </NavLink> */}
+                                    <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Sign In</Button>
+
                                 </form>
 
-                                {/* {isLoading && <CircularProgress />} */}
+
 
                                 {/* {user?.email && <Alert severity="success">User Created successfully!</Alert>} */}
 
@@ -100,7 +94,7 @@ const SignIn = () => {
             </Box>
 
             <Grid item xs={12} md={6}>
-                <img style={{ width: '100%' }} src="" alt="no img" />
+                {/* <img style={{ width: '100%' }} src="" alt="no img" /> */}
             </Grid>
         </Container>
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Navigate, Outlet, useNavigate } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+
 import SignIn from '../SignIn/SignIn';
 
 const PrivateRoute = () => {
-    const navigate = useNavigate();
+
 
     // const isLogin = JSON.parse(localStorage.getItem('isLogin'));
     const isLogin = localStorage.getItem('isLogin');
@@ -17,7 +17,7 @@ const PrivateRoute = () => {
 
     console.log('isLogin matching', isLogin === Login);
 
-    // isLogin === 'login' ? <Outlet /> : <SignIn></SignIn>
+
 
 
 

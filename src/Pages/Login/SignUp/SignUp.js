@@ -18,7 +18,7 @@ const SignUp = () => {
 
         setRegistrationData(newregistrationData);
     }
-    console.log(registrationData);
+
 
     const handleLoginSubmit = e => {
         if (registrationData.password !== registrationData.password2) {
@@ -28,7 +28,7 @@ const SignUp = () => {
         }
         registerUser(registrationData.email, registrationData.password, registrationData.name, registrationData.phone, registrationData.date, registrationData.gender);
         e.preventDefault();
-        console.log('token in signup ', token);
+
     }
 
 
@@ -117,7 +117,7 @@ const SignUp = () => {
                             />
                         </Box>
 
-                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Register</Button>
+                        <Button sx={{ width: '75%', m: 1 }} type="submit" variant="contained">Sign Up</Button>
                         {/* <NavLink
                                 style={{ textDecoration: 'none' }}
                                 to="/login">

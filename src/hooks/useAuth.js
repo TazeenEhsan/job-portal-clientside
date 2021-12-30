@@ -13,7 +13,7 @@ const useAuth = () => {
     const registerUser = (email, password, name, phone, date, gender) => {
         setIsLoading(true);
         const user = { email, password, name, phone, date, gender };
-        fetch('http://localhost:5000/jobPortalUsers', {
+        fetch('https://shrouded-bastion-71024.herokuapp.com/jobPortalUsers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -30,7 +30,7 @@ const useAuth = () => {
 
         setIsLoading(true);
 
-        fetch(`http://localhost:5000/jobPortalUserlogin`, {
+        fetch(`https://shrouded-bastion-71024.herokuapp.com/jobPortalUserlogin`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -121,7 +121,7 @@ const Create = () => {
 
 
 
-        fetch('http://localhost:5000/jobPortalAllJobs', {
+        fetch('https://shrouded-bastion-71024.herokuapp.com/jobPortalAllJobs', {
             method: 'POST',
             headers: {
                 'authorization': `${token}`,
